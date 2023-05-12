@@ -19,6 +19,6 @@ func main() {
 
 }
 func page(w http.ResponseWriter, r *http.Request) {
-	tmpl := template.Must(template.ParseFiles("./index.html")) //We link the template and the html file
+	tmpl := template.Must(template.ParseFiles("index.html")) //We link the template and the html file
 	tmpl.Execute(w, nil)
 }
