@@ -1,3 +1,4 @@
+import { CreateButton } from "../balises/button.js";
 export const Login = () => {
     const linkcss = document.createElement('link'); linkcss.rel = 'stylesheet';linkcss.href = 'http://localhost:8080/assets/css/login.css'; linkcss.id = "";document.head.appendChild(linkcss);
     const section = document.createElement('section'); section.classList.add('login-section');
@@ -9,5 +10,6 @@ export const Login = () => {
     emaildivinput.appendChild(emailimg); emaildivinput.appendChild(emailinput);
     emailcontainer.appendChild(emailh2); emailcontainer.appendChild(emaildivinput);
     section.appendChild(emailcontainer);
+    CreateButton('Send', 'send', 'send', section);
     document.body.appendChild(section);
 }
