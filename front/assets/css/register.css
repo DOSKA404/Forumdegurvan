@@ -1,0 +1,160 @@
+
+
+.login-section {
+    background-color: #C19292;
+    width: 100%;
+    height: 80%;  
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+.login-container {
+  display: flex;
+  justify-content: center;
+  align-items: start;
+  flex-direction: column;
+  width: fit-content;
+  height: fit-content;
+}
+.login-container > h2{
+  font-size: 30px;
+  font-weight: bold;
+}
+.login-container > div {
+  background-color: #D9D9D9;
+  border: transparent;
+  border-radius: 25px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+}
+.login-container > div > .login-insideImage {
+  height: 50px;
+  width: 50px;
+  border-right: 6px solid #40042F;
+  margin-left: 0.5vw;
+  margin-right: 0.5vw;
+  margin-top: 0.5vh;
+  margin-bottom: 0.5vh;
+  padding: 3px 10px 3px 3px;
+}
+.login-container > div > input {
+  text-align: start;
+  margin-right: 1vw;
+  border : none;
+  font-size: 24px;
+  background-color: #D9D9D9;
+}
+.login-fail {
+  font-size: 24px ;
+  color : darkred;
+  text-decoration: underline;
+}
+
+.Button1 {
+  margin-top: 5vh;
+  background-color: #40042F;
+  padding: 4px 4px 4px 4px;
+  color: #D9D9D9;
+  font-size: 30px;
+  font-weight: 400;
+  border : none;
+  border-radius: 15px;
+  min-height: 5vh;
+  min-width: 7vw;
+}
+.Button1:hover {
+  background-color: #D9D9D9;
+  color: #40042F;
+  cursor: pointer;
+}
+
+.Button2 {
+  margin-top: 2vh;
+  background-color: #40042F;
+  padding: 4px 4px 4px 4px;
+  color: #D9D9D9;
+  font-size: 30px;
+  font-weight: 400;
+  border : none;
+  border-radius: 15px;
+  min-height: 5vh;
+  min-width: 7vw;
+}
+.Button2:hover {
+  background-color: #D9D9D9;
+  color: #40042F;
+  cursor: pointer;
+}
+.login-eye{
+  height: 50px;
+  width: 50px;
+  margin-left: 0.5vw;
+  margin-right: 0.5vw;
+  margin-top: 0.5vh;
+  margin-bottom: 0.5vh;
+  padding: 3px 10px 3px 3px;
+  cursor: pointer;
+}
+.login-toCreate {
+  font-size: 14px;
+  color: #D9D9D9;
+  text-decoration: underline;
+  cursor: pointer;
+}
+.register-date::-webkit-datetime-edit { padding: 1em;}
+.register-date::-webkit-datetime-edit-text { color: #40042F; padding: 0 0.3em; }
+.register-date::-webkit-datetime-edit-month-field { color: #40042F; }
+.register-date::-webkit-datetime-edit-day-field { color: #40042F; }
+.register-date::-webkit-datetime-edit-year-field { color: #40042F; }
+.register-date::-webkit-inner-spin-button { display: none; }
+
+.register-date:hover::-webkit-datetime-edit { padding: 1em;}
+.register-date:hover::-webkit-datetime-edit-text { color: #D9D9D9; padding: 0 0.3em; }
+.register-date:hover::-webkit-datetime-edit-month-field { color: #D9D9D9; }
+.register-date:hover::-webkit-datetime-edit-day-field { color: #D9D9D9; }
+.register-date:hover::-webkit-datetime-edit-year-field { color: #D9D9D9; }
+.register-date:hover::-webkit-calendar-picker-indicator { color: #D9D9D9; }
+
+.register-date {
+  margin-top: 2vh;
+  width: 16vw;
+  height: 6vh;
+  font-size: 20px;
+  border: transparent;
+  border-radius: 20px;
+  background-color: #D9D9D9;
+  
+}
+
+.register-date:hover {
+  background-color: #40042F;
+  color: #D9D9D9;
+  cursor: pointer;
+}
+
+@media (max-width: 860px) {
+  .register-section {
+    width: 100%;
+    height: fit-content;
+    background-color: #C19292;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+}
+@media (min-width: 860px) {
+  .register-section {
+    width: 100%;
+    height: 80%;
+    background-color: #C19292;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+}
