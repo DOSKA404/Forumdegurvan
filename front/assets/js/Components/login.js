@@ -9,5 +9,6 @@ export const Login = (fail) => {
     section.appendChild(CreateInputContainer('Enter your email','exemple@gmail.com' , "email" , "http://localhost:8080/assets/img/email.svg"));
     section.appendChild(CreateInputContainer('Enter your password','********' , "psw" , "http://localhost:8080/assets/img/password.svg" , true));
     CreateButton('Login', 'LoginButton', 'Button1', section);
+    const toCreate = document.createElement('p'); toCreate.innerText = "Don't have an account ?"; toCreate.classList.add('login-toCreate'); toCreate.id = "tocreate"; section.appendChild(toCreate);
     document.body.appendChild(section);
 }
