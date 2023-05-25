@@ -1,0 +1,14 @@
+.menu-section {
+    width: 85%;
+    height: 200px;
+    background-color: rgb(183, 87, 87);
+    margin-left: auto;
+    margin-right: auto;
+}
+
+@media (max-width: 600px) {
+    #rectangle {
+        width: 100%;
+    }
+}
+
