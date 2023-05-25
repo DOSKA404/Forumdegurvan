@@ -5,19 +5,13 @@ import (
 	"io"
 	"net/http"
 
+	"github.com/GurvanN22/Forum/src/Backend/api/structures"
 	"github.com/GurvanN22/Forum/src/Backend/tools"
 )
 
-type User struct {
-	Email       string
-	Username    string
-	DateOfBirth string
-	Hash        string
-}
-
 func UserCreationHandler(w http.ResponseWriter, r *http.Request) {
 	if r.Method == http.MethodPost {
-		var user *User
+		var user *structures.User
 		byteUser, err := io.ReadAll(r.Body)
 		tools.HandlerError(err)
 		err = json.Unmarshal(byteUser, &user)
