@@ -1,6 +1,7 @@
 package api
 
 import (
+	"fmt"
 	"log"
 	"net/http"
 
@@ -12,5 +13,6 @@ func StartApi() {
 		w.Write([]byte("Welcome to the Forum backend api"))
 	})
 	http.HandleFunc("/createUser", handlers.UserCreationHandler)
+	fmt.Println("api endpoint listening on: http://0.0.0.0:6969")
 	log.Fatal(http.ListenAndServe(":6969", nil))
 }
