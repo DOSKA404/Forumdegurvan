@@ -17,11 +17,10 @@ func PutUserInDb(user *structures.User) error {
 	if err != nil {
 		return err
 	}
-	hashPass := hex.EncodeToString(tools.HashPassword(user.Password))
 	records := "INSERT INTO User(email, username, date_of_birth, password_hash) VALUES(?, ?, ?, ?)"
 	querry, err := db.Prepare(records)
 	tools.HandlerError(err)
-	_, err = querry.Exec(user.Email, user.Username, user.DateOfBirth, hashPass)
+	_, err = querry.Exec(user.Email, user.Username, user.DateOfBirth, hex.EncodeToString(tools.HashPassword(user.Password)))
 	tools.HandlerError(err)
 	return nil
 }
