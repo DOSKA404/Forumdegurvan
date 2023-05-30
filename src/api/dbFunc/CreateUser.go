@@ -2,6 +2,7 @@ package dbFunc
 
 import (
 	"database/sql"
+	"encoding/hex"
 
 	"github.com/GurvanN22/Forum/src/Backend/api/structures"
 	"github.com/GurvanN22/Forum/src/Backend/tools"
@@ -16,7 +17,7 @@ func PutUserInDb(user *structures.User) error {
 	if err != nil {
 		return err
 	}
-	hashPass := string(tools.HashPassword(user.Password))
+	hashPass := hex.EncodeToString(tools.HashPassword(user.Password))
 	records := "INSERT INTO User(email, username, date_of_birth, password_hash) VALUES(?, ?, ?, ?)"
 	querry, err := db.Prepare(records)
 	tools.HandlerError(err)
