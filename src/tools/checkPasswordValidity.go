@@ -1,19 +1,18 @@
 package tools
 
 import (
+	"encoding/hex"
 	"fmt"
 )
 
 func CheckPasswordValidity(hashInDb string, userInput string) error {
 	
-	hashedUserInput := HashPassword(userInput)
+	hashedUserInput := hex.EncodeToString(HashPassword(userInput))
 
 	for i := range hashInDb {
-		if hashInDb[i] == hashedUserInput[i] {
-			return nil
-		} else if  hashInDb[i] != hashedUserInput[i] {
+		if  hashInDb[i] != hashedUserInput[i] {
 		return fmt.Errorf("incorrect password")
-	}
-} 
-return nil
+		}
+	} 
+	return nil
 }
