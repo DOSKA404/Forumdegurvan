@@ -17,8 +17,12 @@ func UserCreationHandler(w http.ResponseWriter, r *http.Request) {
 		tools.HandlerError(err)
 		err = json.Unmarshal(byteUser, &user)
 		tools.HandlerError(err)
-		dbFunc.PutUserInDb(user)
-		w.Write([]byte("user created"))
+		err = dbFunc.PutUserInDb(user)
+		if err != nil {
+			w.Write([]byte(err.Error()))
+		} else {
+			w.Write([]byte("user created"))
+		}
 	} else {
 		w.Write([]byte("Bad request Method"))
 	}
