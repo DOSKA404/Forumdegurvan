@@ -13,7 +13,11 @@ func PutUserInDb(user *structures.User) error {
 	db, err := sql.Open("sqlite3", "database/db.db")
 	tools.HandlerError(err)
 	defer db.Close()
-	err = CheckUserAlreadyExist(db, user.Email)
+	err = CheckUserEmailAlreadyExists(db, user.Email)
+	if err != nil {
+		return err
+	}
+	err = CheckUsernameAlreadyExists(db, user.Username)
 	if err != nil {
 		return err
 	}
