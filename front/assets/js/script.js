@@ -33,4 +33,4 @@ const Connnexion = (email,psw) => {
     }
 }
 
-LoginPage()
+//LoginPage()

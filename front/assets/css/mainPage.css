@@ -1,9 +1,24 @@
+@font-face {
+    font-family: 'Vintage-Signature';
+    src: url(‘http://localhost:8080/assets/fonts/Vintage-Signature.otf’) format('otf'),
+
+}
+
+
 .menu-section {
-    width: 85%;
-    height: 200px;
-    background-color: rgb(183, 87, 87);
+    width: 100%;
+    height: 90%;
+    background-color: 40042F;
+    display: flex;
+}
+
+.menu-div {
+    width: 90%;
+    height: 785px;
+    background-color: C19292;
     margin-left: auto;
     margin-right: auto;
+    transform: translateY(-50%, 50%);
 }
 
 @media (max-width: 600px) {
@@ -12,3 +27,56 @@
     }
 }
 
+.container {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.CLOAK {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    color: rgb(255, 255, 255);
+    text-align: center;
+    position: absolute;
+    top: 5%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+
+.second-word {
+    font-family: Vintage-Signature;
+    color: rgb(0, 0, 0);
+}
+
+.search-container {
+    display: flex;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.search-input {
+    padding: 10px;
+    border: none;
+    border-radius: 10px 0 0 10px;
+    width: 400px;
+}
+
+.search-button {
+    padding: 10px 20px;
+    border: none;
+    background-color: #000000;
+    color: #ffffff;
+    border-radius: 0 10px 10px 0;
+    cursor: pointer;
+    width: auto;
+}
+
+.search-bar.custom-width {
+    width: auto;
+}
