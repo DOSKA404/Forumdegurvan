@@ -12,6 +12,9 @@ import (
 
 func UserCreationHandler(w http.ResponseWriter, r *http.Request) {
 	w.Header().Add("Access-Control-Allow-Origin", "*")
+	w.Header().Add("Access-Control-Allow-Credentials", "true")
+	w.Header().Add("Access-Control-Allow-Methods", "GET,PUT,POST,DELETE,HEAD")
+	w.Header().Add("Access-Control-Allow-Headers", "authorization,content-type,content-length")
 	if r.Method == http.MethodPost {
 		var user *structures.User
 		byteUser, err := io.ReadAll(r.Body)
