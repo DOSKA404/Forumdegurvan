@@ -21,8 +21,6 @@ func UserCreationHandler(w http.ResponseWriter, r *http.Request) {
 		if err != nil {
 			w.Write([]byte(err.Error()))
 		} else {
-			// w.Header().Add("Content-Type", "application/json")
-			// w.Header().Add("Access-Control-Allow-Origin", "*")
 			w.Write([]byte("user created"))
 		}
 	} else {
