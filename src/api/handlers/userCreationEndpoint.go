@@ -11,6 +11,7 @@ import (
 )
 
 func UserCreationHandler(w http.ResponseWriter, r *http.Request) {
+	w.Header().Add("Access-Control-Allow-Origin", "*")
 	if r.Method == http.MethodPost {
 		var user *structures.User
 		byteUser, err := io.ReadAll(r.Body)
