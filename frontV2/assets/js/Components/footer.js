@@ -21,5 +21,4 @@ export const Footer = () => {
     linksdiv.appendChild(afacebook); linksdiv.appendChild(ainstagram); linksdiv.appendChild(atwitter); linksdiv.appendChild(aytb); linksdiv.appendChild(aemail);
     section.appendChild(p);section.appendChild(linksdiv); section.appendChild(rights);
     document.body.appendChild(section);
-
 }

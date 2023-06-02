@@ -1,9 +1,17 @@
 body {
     margin: 0 0 0 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    flex-wrap: wrap;
+    width: 100%;
+    height: 80%;
+    background-color: #C19292;
   }
 #post  {
-  background-color: #C19292;
-    width: 100%;
+  background-color: #977474;
+    width: 80%;
     height: 80%;  
     display: flex;
     justify-content: center;

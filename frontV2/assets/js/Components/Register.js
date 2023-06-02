@@ -1,4 +1,7 @@
 import { DateCheck } from "../function/DateCheck.js";
+import { TestPeuso } from "../test/Pseudo.js";
+import { TestEmail } from "../test/Email.js";
+
 const passwordCheck = () => {
     /*
     * This function will be called every time the user change a letter in a password entry
@@ -46,14 +49,14 @@ document.getElementById('date').addEventListener('change' , (e) => {
     }
 })
 document.getElementById('email').addEventListener('change' , (e) => {
-    if(/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(e.target.value) === false){
+    if(TestEmail(e.target.value) === false){
         document.getElementById('emailError').classList.add('register-Error-on')
         document.getElementById('emailError').classList.remove('register-Error-off')
         document.getElementById('emailError').innerText = "The email is not valid"
     }
 })
 document.getElementById('pseudo').addEventListener('change' , (e) => {
-    if(/^[A-Za-z0-9_-]{3,16}$/.test(e.target.value) === false) {
+    if(TestPeuso(e.target.value) === false) {
         document.getElementById('pseudoError').classList.add('register-Error-on')   
         document.getElementById('pseudoError').classList.remove('register-Error-off')
         document.getElementById('pseudoError').innerText = "The pseudo must be betwin 3 and 16 caracters , only '-' and '_' are autorized has special caracters"
@@ -62,7 +65,7 @@ document.getElementById('pseudo').addEventListener('change' , (e) => {
 
 document.getElementById('RegisterButton').addEventListener( 'click' , (e) => {
     const passwordError = document.getElementById('pswError')
-    if(document.getElementById('psw1').value === "") {
+    if(document.getElementById('psw1').value !== "" || TestPeuso(document.getElementById('pseudo').value) === false || TestEmail(document.getElementById('email').value) === false || DateCheck(document.getElementById('date').value) == false) {
         passwordError.classList.add('register-Error-on')
         passwordError.classList.remove('register-Error-off')
         passwordError.innerText = "the password is empty"
@@ -70,4 +73,24 @@ document.getElementById('RegisterButton').addEventListener( 'click' , (e) => {
         document.getElementById('post').submit();
     }
 
+})
+
+document.getElementById('eye1').addEventListener('click' , () => {
+    if(document.getElementById('psw1').type === "password") {
+       document.getElementById('eye1').src = "/assets/img/eye_off.svg" 
+        document.getElementById('psw1').type = "text"
+    } else {
+        document.getElementById('eye1').src = "/assets/img/eye_on.svg" 
+        document.getElementById('psw1').type = "password"
+    }
+})
+
+document.getElementById('eye2').addEventListener('click' , () => {
+    if(document.getElementById('psw2').type === "password") {
+       document.getElementById('eye2').src = "/assets/img/eye_off.svg" 
+        document.getElementById('psw2').type = "text"
+    } else {
+        document.getElementById('eye2').src = "/assets/img/eye_on.svg" 
+        document.getElementById('psw2').type = "password"
+    }
 })
