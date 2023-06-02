@@ -26,9 +26,9 @@ CREATE TABLE IF NOT EXISTS Comment (
 );
 
 CREATE TABLE IF NOT EXISTS "Like" (
+    id_Like INTEGER NOT NULL PRIMARY KEY DEFAULT 0,
     id_post INTEGER,
     id_user INTEGER,
-    CONSTRAINT PK_Like PRIMARY KEY(id_post, id_user),
     FOREIGN KEY(id_post) REFERENCES Post(id_post),
     FOREIGN KEY(id_user) REFERENCES User(id_user)
 )
