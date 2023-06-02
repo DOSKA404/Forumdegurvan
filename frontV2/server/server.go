@@ -13,6 +13,7 @@ func main() {
 	http.HandleFunc("/main", page)                               //We create the main page , the only function who use a template
 	http.HandleFunc("/", page)
 	http.HandleFunc("/register", register)
+	http.HandleFunc("/test", test)
 
 	Port := "8080"                                          //We choose port 8080
 	fmt.Println("The serveur start on port " + Port + " 🔥") //We print this when the server is online
@@ -21,10 +22,17 @@ func main() {
 
 }
 func page(w http.ResponseWriter, r *http.Request) {
-	tmpl := template.Must(template.ParseFiles("index.html")) //We link the template and the html file
+	tmpl := template.Must(template.ParseFiles("html/login.html")) //We link the template and the html file
 	tmpl.Execute(w, nil)
 }
 func register(w http.ResponseWriter, r *http.Request) {
 	tmpl := template.Must(template.ParseFiles("html/createAccount.html")) //We link the template and the html file
 	tmpl.Execute(w, nil)
+}
+
+func test(w http.ResponseWriter, r *http.Request) {
+	fmt.Println(r.FormValue("email"))
+	fmt.Println(r.FormValue("psw"))
+	fmt.Println(r.FormValue("pseudo"))
+	fmt.Println(r.FormValue("date"))
 }
