@@ -1,0 +1,55 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./assets/css/infoFile.css">
+    <link rel="icon" href="./assets/img/logo.svg" />
+    <title>Cloak & Dagger</title>
+</head>
+<body>
+    <section>
+         <div class="topDiv">
+            <div>
+                <img src="./assets/img/logo.svg" alt="logo">
+                <h1>Cloak & Dagger</h1>
+            </div>
+            <div>
+                <div class="search-bar">
+                    <form action="" method="post">
+                        <input type="text" placeholder="Search">
+                    </form>
+                    <img src="./assets/img/glass.svg" alt="search logo">
+                </div>
+                <form action="/account" method="post">
+                    <button>
+                        <img src="./assets/img/user.svg" alt="user logo ">
+                    </button>
+                </form>
+            </div>
+            
+            
+         </div>
+        <div class="Posts">
+            {{range .PostLine}}
+               <div class="post">
+                <div class="top-post">
+                    <img src="https://picsum.photos/200/300" alt="">
+                    <p>{{.Author}}</p>
+                </div>
+                <div class="body-post">{{.Content}}</div>
+                <div class="bottom-post">
+                    {{if .IsLike}}
+                    <img src="./assets/img/like.svg" alt="">
+                    {{else}}
+                    <img src="./assets/img/like-placeholder.svg" alt="">
+                    {{end}}
+                    
+                    <p>{{.Likes}}</p>
+                </div>
+               </div>
+            {{end}}
+        </div> 
+    </section>  
+</body>
+</html>

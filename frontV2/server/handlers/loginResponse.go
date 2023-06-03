@@ -15,7 +15,7 @@ func LoginResponse(w http.ResponseWriter, r *http.Request) {
 		Password: r.FormValue("psw"),
 	}
 	data.LoginResponse = apiCall.LoginConnection(&structure)
-	switch data.RegisterResponse {
+	switch data.LoginResponse {
 	case "Login successful":
 		fmt.Println("Login successful")
 		Login(w, r)

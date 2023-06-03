@@ -37,4 +37,6 @@ func Register(w http.ResponseWriter, r *http.Request) {
 		break
 
 	}
+	tmpl := template.Must(template.ParseFiles("html/footer.html")) //We link the template and the html file
+	tmpl.Execute(w, nil)
 }
