@@ -11,17 +11,17 @@ import (
 	//"github.com/GurvanN22/Forum/src/front/server/tools"
 )
 
-func LoginConnection(structure *structures.User) string {
+func CreatePost(structure *structures.Post) string {
 	//hash := tools.HashToken(structure.Email + structure.Password)
 	bytesStructure, err := json.Marshal(structure)
 	if err != nil {
 		fmt.Println(err)
 	}
-	req, err := http.NewRequest(http.MethodPost, "http://localhost:6969/login", bytes.NewReader(bytesStructure))
+	req, err := http.NewRequest(http.MethodPost, "http://localhost:6969/createUser", bytes.NewReader(bytesStructure))
 	if err != nil {
 		fmt.Println(err)
 	}
-	//req.Header.Add("Token", string(hash))
+	//req.Header.Add("Token :", string(hash))
 	res, err := http.DefaultClient.Do(req)
 	if err != nil {
 		fmt.Println(err)

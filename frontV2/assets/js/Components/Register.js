@@ -20,8 +20,8 @@ const passwordCheck = () => {
 
 
 
-document.getElementById('psw1').addEventListener( 'change' , passwordCheck)
-document.getElementById('psw2').addEventListener( 'change' , passwordCheck)
+document.getElementById('psw1').addEventListener( 'input' , passwordCheck)
+document.getElementById('psw2').addEventListener( 'input' , passwordCheck)
 document.getElementById('date').addEventListener('click' , () => {
     document.getElementById('dateError').innerText = ''
     document.getElementById('dateError').classList.remove('register-Error-on')
@@ -39,7 +39,7 @@ document.getElementById('pseudo').addEventListener('click' , () => {
     document.getElementById('pseudoError').innerText = ""
 })
 
-document.getElementById('date').addEventListener('change' , (e) => {
+document.getElementById('date').addEventListener('input' , (e) => {
     document.getElementById('dateError').innerText = ''
     const Check = DateCheck(e.target.value)
     if( Check !== true) {
@@ -48,14 +48,14 @@ document.getElementById('date').addEventListener('change' , (e) => {
         dateError.classList.remove('register-Error-off')
     }
 })
-document.getElementById('email').addEventListener('change' , (e) => {
+document.getElementById('email').addEventListener('input' , (e) => {
     if(TestEmail(e.target.value) === false){
         document.getElementById('emailError').classList.add('register-Error-on')
         document.getElementById('emailError').classList.remove('register-Error-off')
         document.getElementById('emailError').innerText = "The email is not valid"
     }
 })
-document.getElementById('pseudo').addEventListener('change' , (e) => {
+document.getElementById('pseudo').addEventListener('input' , (e) => {
     if(TestPeuso(e.target.value) === false) {
         document.getElementById('pseudoError').classList.add('register-Error-on')   
         document.getElementById('pseudoError').classList.remove('register-Error-off')
@@ -65,7 +65,7 @@ document.getElementById('pseudo').addEventListener('change' , (e) => {
 
 document.getElementById('RegisterButton').addEventListener( 'click' , (e) => {
     const passwordError = document.getElementById('pswError')
-    if(document.getElementById('psw1').value !== "" || TestPeuso(document.getElementById('pseudo').value) === false || TestEmail(document.getElementById('email').value) === false || DateCheck(document.getElementById('date').value) == false) {
+    if(document.getElementById('psw1').value == "" || TestPeuso(document.getElementById('pseudo').value) === false || TestEmail(document.getElementById('email').value) === false || DateCheck(document.getElementById('date').value) == false) {
         passwordError.classList.add('register-Error-on')
         passwordError.classList.remove('register-Error-off')
         passwordError.innerText = "the password is empty"

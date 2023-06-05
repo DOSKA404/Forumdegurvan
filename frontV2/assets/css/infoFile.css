@@ -89,6 +89,8 @@ section {
     color: #40042F;
 }
 
+area:focus{outline:0 ; font-size: 1.6rem;}
+    
 .Posts {
     display: flex;
     justify-content: center;
@@ -144,6 +146,9 @@ section {
     min-height: 60px;
     height: fit-content;
     margin-top: 2vh;
+    border: none;
+    outline: none;
+    background-color: none;
 }
 .bottom-post {
     display: flex;

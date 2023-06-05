@@ -10,7 +10,6 @@ import (
 )
 
 func Register(w http.ResponseWriter, r *http.Request) {
-	fmt.Println(data.RegisterResponse)
 	switch data.RegisterResponse {
 	case "user already exists":
 		Data := structures.Error{
@@ -20,6 +19,8 @@ func Register(w http.ResponseWriter, r *http.Request) {
 		}
 		tmpl := template.Must(template.ParseFiles("html/createAccount.html")) //We link the template and the html file
 		tmpl.Execute(w, Data)
+		tmpl = template.Must(template.ParseFiles("html/footer.html")) //We link the template and the html file
+		tmpl.Execute(w, nil)
 		break
 	case "username already exists":
 		fmt.Println("username already exists inside")
@@ -30,13 +31,13 @@ func Register(w http.ResponseWriter, r *http.Request) {
 		}
 		tmpl := template.Must(template.ParseFiles("html/createAccount.html")) //We link the template and the html file
 		tmpl.Execute(w, Data)
-		break
-	default:
-		tmpl := template.Must(template.ParseFiles("html/createAccount.html")) //We link the template and the html file
+		tmpl = template.Must(template.ParseFiles("html/footer.html")) //We link the template and the html file
 		tmpl.Execute(w, nil)
 		break
-
+	default:
+		Login(w, r)
+		break
 	}
-	tmpl := template.Must(template.ParseFiles("html/footer.html")) //We link the template and the html file
-	tmpl.Execute(w, nil)
+	data.RegisterResponse = ""
+
 }

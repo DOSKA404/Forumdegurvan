@@ -1,7 +1,6 @@
 package handlers
 
 import (
-	"fmt"
 	"html/template"
 	"net/http"
 
@@ -16,10 +15,10 @@ func Info(w http.ResponseWriter, r *http.Request) {
 	i := 5
 	for i > 0 {
 		Data.PostLine = append(Data.PostLine, structures.Post{
-			Author:  "Le Rouge",
-			Content: "le front est chiant",
-			Likes:   666,
-			IsLike:  i%2 == 0,
+			Username: "Le Rouge",
+			Content:  "le front est chiant",
+			Likes:    666,
+			IsLike:   i%2 == 0,
 		})
 		i--
 	}

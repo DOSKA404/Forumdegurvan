@@ -18,14 +18,12 @@ func LoginResponse(w http.ResponseWriter, r *http.Request) {
 	switch data.LoginResponse {
 	case "Login successful":
 		fmt.Println("Login successful")
-		Login(w, r)
 		break
 	case "incorrect password":
-		fmt.Println("incorrect password")
 		Login(w, r)
 		break
 	case "no user found":
-		fmt.Println("no user found")
+		Login(w, r)
 		break
 	}
 }

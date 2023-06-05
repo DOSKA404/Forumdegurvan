@@ -16,8 +16,10 @@
             </div>
             <div>
                 <div class="search-bar">
-                    <form action="" method="post">
-                        <input type="text" placeholder="Search">
+                    <form action="" method="post" id = "createPost">
+                        <p style="display: none;" name = "date"></p>
+                        <p style="display: none;" name = "authorid"></p>
+                        <input type="text" placeholder="Search" name="content">
                     </form>
                     <img src="./assets/img/glass.svg" alt="search logo">
                 </div>
@@ -31,11 +33,23 @@
             
          </div>
         <div class="Posts">
+            <div class="post">
+                <div class="top-post">
+                    <img src="https://picsum.photos/200/300" alt="">
+                    <p>You</p>
+                </div>
+                <form action="/createPost" method="post" id='createPost'>
+                    <p id = "content" name = "content" style="display: none;"></p>
+                    <p id = "username" name = "authorid" style="display: none;"></p>
+                    <p id = "date" name = "date" style="display: none;"></p>
+                </form>
+                <input type="area" placeholder="What's on your mind?" class="body-post" id = "area">
+            </div>
             {{range .PostLine}}
                <div class="post">
                 <div class="top-post">
                     <img src="https://picsum.photos/200/300" alt="">
-                    <p>{{.Author}}</p>
+                    <p>{{.Username}}</p>
                 </div>
                 <div class="body-post">{{.Content}}</div>
                 <div class="bottom-post">
@@ -52,4 +66,5 @@
         </div> 
     </section>  
 </body>
+<script src="./assets/js/Components/info.js" defer></script>
 </html>

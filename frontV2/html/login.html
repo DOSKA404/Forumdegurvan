@@ -9,19 +9,22 @@
 </head>
 <body>
     <section>
+        {{if .IsError}} 
+            <p class="login-fail">{{.ErrorMSG}}</p>
+        {{end}}
         <form action="/LoginResponse" method="post" id="post">
             <div class="login-container">
                 <h2>Enter your email</h2>
                 <div class="">
                     <img src="./assets/img/email.svg" alt="email logo" class="login-insideImage">
-                    <input type="email" name="" id="email" placeholder="exemple@gmail.com">
+                    <input type="email" name="email" id="email" placeholder="exemple@gmail.com">
                 </div>
             </div>
             <div class="login-container">
                 <h2>Enter your password</h2>
                 <div class="">
                     <img src="./assets/img/password.svg" alt="psw logo" class="login-insideImage">
-                    <input type="password" name="" id="psw" placeholder="********">
+                    <input type="password" name="psw" id="psw" placeholder="********">
                     <img src="./assets/img/eye_on.svg" alt="" id = "eye" class="login-eye">
                 </div>
             </div>
