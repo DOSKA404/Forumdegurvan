@@ -23,7 +23,6 @@ func Info(w http.ResponseWriter, r *http.Request) {
 		})
 		i--
 	}
-	fmt.Println(Data.PostLine)
 	tmpl := template.Must(template.ParseFiles("html/infoFile.html")) //We link the template and the html file
 	tmpl.Execute(w, Data)
 	tmpl = template.Must(template.ParseFiles("html/footer.html")) //We link the template and the html file
