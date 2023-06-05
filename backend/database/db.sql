@@ -8,7 +8,6 @@ CREATE TABLE IF NOT EXISTS User (
 
 CREATE TABLE IF NOT EXISTS Post (
     id_post INTEGER NOT NULL PRIMARY KEY DEFAULT 0,
-    title TEXT,
     date_post TEXT,
     content TEXT,
     id_user INTEGER,

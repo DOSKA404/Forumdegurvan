@@ -10,7 +10,6 @@ type User struct {
 
 type Post struct {
 	Id_post   int
-	Title     string
 	Date_post string
 	Content   string
 	Id_user   int
