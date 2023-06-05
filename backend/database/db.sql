@@ -30,4 +30,4 @@ CREATE TABLE IF NOT EXISTS "Like" (
     id_user INTEGER,
     FOREIGN KEY(id_post) REFERENCES Post(id_post),
     FOREIGN KEY(id_user) REFERENCES User(id_user)
-)
+);

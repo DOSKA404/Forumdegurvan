@@ -12,6 +12,7 @@ type Post struct {
 	Id_post   int
 	Date_post string
 	Content   string
+	Username  string
 	Id_user   int
 }
 
