@@ -31,3 +31,5 @@ CREATE TABLE IF NOT EXISTS "Like" (
     FOREIGN KEY(id_post) REFERENCES Post(id_post),
     FOREIGN KEY(id_user) REFERENCES User(id_user)
 );
+
+INSERT INTO User(email, username) VALUES("tomjegou10@gmail.com", "TOMYYYYYYYYYYYYYYYYYYY");

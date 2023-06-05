@@ -2,7 +2,6 @@ package handlers
 
 import (
 	"encoding/json"
-	"fmt"
 	"io"
 	"net/http"
 
@@ -23,11 +22,13 @@ func FetchUserInfo(w http.ResponseWriter, r *http.Request) {
 		tools.HandlerError(err)
 
 		username, err = dbFunc.GetUsername(user.Email)
+		user.Username = username
 		if err != nil {
 			w.Write([]byte(err.Error()))
 		} else {
-			response := fmt.Sprintf("Username for the associated email is %v", username)
-			w.Write([]byte(response))
+			byteUser, err := json.Marshal(&user)
+			tools.HandlerError(err)
+			w.Write(byteUser)
 		}
 	} else {
 		w.Write([]byte("Bad request Method"))
