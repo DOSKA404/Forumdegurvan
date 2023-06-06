@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>CLOAK  & Dagger</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
         integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -31,13 +31,14 @@
                 <div class="content-block"></div>
             </div>
     </section>
-    <header>
-        <nav class="nav">
-            <div id="toggle">
+    <div id="toggle">
 
-                <i class="fas fa-bars ouvrir"></i>
-                <i class="fas fa-times fermer"></i>
-            </div>
+        <i class="fas fa-bars ouvrir"></i>
+        <i class="fas fa-times fermer"></i>
+    </div>
+    <header id = "header">
+        <nav class="nav">
+            
             <div class="menu">
                 <div class="menu_left">
                     <div class="menu_left_inner">
@@ -52,10 +53,14 @@
                             </div>
                             <ul>
                                 <li>
-                                    <a href="">Connection</a>
+                                    <form action="./login" method="post">
+                                        <button class="main-button">Connection</button>
+                                    </form>
                                 </li>
                                 <li>
-                                    <a href="">Sign in</a>
+                                    <form action="./register" method="post">
+                                        <button class="main-button">Sign in</button>
+                                    </form>
                                 </li>
                             </ul>
                         </div>
@@ -66,9 +71,6 @@
             </div>
         </nav>
     </header>
-    <section class="hero">
-
-    </section>
 
     <i class="fa-solid fa-octagon-xmark"></i>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/gsap.min.js"
