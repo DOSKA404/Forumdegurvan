@@ -19,6 +19,8 @@ html {
 
 body {
     display: flex;
+    flex-direction: column;
+    background-color: #C19292;
     /*background-color: red;*/
     overflow-x: hidden;
 }
