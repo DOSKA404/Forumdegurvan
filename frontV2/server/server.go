@@ -12,7 +12,7 @@ func StartServer() {
 	styles := http.FileServer(http.Dir("assets"))
 	http.Handle("/assets/", http.StripPrefix("/assets", styles)) //We link the css with http.Handle
 
-	http.HandleFunc("/", handlers.Login)
+	http.HandleFunc("/", handlers.MainPage)
 	http.HandleFunc("/register", handlers.Register)
 	http.HandleFunc("/registerResponse", handlers.RegisterResponse)
 	http.HandleFunc("/login", handlers.Login)
