@@ -35,7 +35,15 @@ func Register(w http.ResponseWriter, r *http.Request) {
 		tmpl.Execute(w, nil)
 		break
 	default:
-		Login(w, r)
+		Data := structures.Error{
+			ErrorMSG: "",
+			IsError:  false,
+			IsError2: false,
+		}
+		tmpl := template.Must(template.ParseFiles("html/createAccount.html")) //We link the template and the html file
+		tmpl.Execute(w, Data)
+		tmpl = template.Must(template.ParseFiles("html/footer.html")) //We link the template and the html file
+		tmpl.Execute(w, nil)
 		break
 	}
 	data.RegisterResponse = ""

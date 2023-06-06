@@ -11,6 +11,7 @@ func Info(w http.ResponseWriter, r *http.Request) {
 	Data := structures.InfoDataInput{
 		USERNAME: "Le Rouge",
 		PostLine: []structures.Post{},
+		IdUser:   666,
 	}
 	i := 5
 	for i > 0 {
