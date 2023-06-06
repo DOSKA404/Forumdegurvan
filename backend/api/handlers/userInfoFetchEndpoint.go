@@ -13,12 +13,9 @@ import (
 func FetchUserInfo(w http.ResponseWriter, r *http.Request) {
 	if r.Method == http.MethodPost {
 		var userInfo structures.User
-		var email string
-		body, err := io.ReadAll(r.Body)
+		byteEmail, err := io.ReadAll(r.Body)
 		tools.HandlerError(err)
-		err = json.Unmarshal(body, &email)
-		tools.HandlerError(err)
-		userInfo = dbFunc.GetUserInfo(email)
+		userInfo = dbFunc.GetUserInfo(string(byteEmail))
 		if err != nil {
 			w.Write([]byte(err.Error()))
 		} else {

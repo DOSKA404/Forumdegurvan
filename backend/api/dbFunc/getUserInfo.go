@@ -12,7 +12,7 @@ func GetUserInfo(email string) structures.User {
 	db, err := sql.Open("sqlite3", "database/db.db")
 	tools.HandlerError(err)
 	defer db.Close()
-	rows := db.QueryRow("SELECT User.Email, User.Username, User.DateOfBirth FROM User WHERE email=?", email)
+	rows := db.QueryRow("SELECT email, username, date_of_birth FROM User WHERE email=?", email)
 	tools.HandlerError(err)
 	var user structures.User
 	err = rows.Scan(&user.Email, &user.Username, &user.DateOfBirth)
