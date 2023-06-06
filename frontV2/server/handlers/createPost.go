@@ -12,6 +12,7 @@ import (
 func CreatePosthandler(w http.ResponseWriter, r *http.Request) {
 	fmt.Println("CreatePosthandler")
 	IdUser, err := strconv.Atoi(r.FormValue("authorid"))
+	fmt.Println("IdUser: ", r.FormValue("authorid"))
 	if err != nil {
 		fmt.Println(err)
 	}
@@ -20,7 +21,6 @@ func CreatePosthandler(w http.ResponseWriter, r *http.Request) {
 		Content:      r.FormValue("content"),
 		CreationDate: r.FormValue("date"),
 	}
-	apiCall.CreatePost(&Data)
-	fmt.Println(Data)
-	//Info(w, r)
+	fmt.Println(apiCall.CreatePost(&Data))
+	Info(w, r)
 }
