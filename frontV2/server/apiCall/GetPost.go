@@ -11,7 +11,7 @@ import (
 	//"github.com/GurvanN22/Forum/src/front/server/tools"
 )
 
-func GetPost() structures.Post {
+func GetPost() []structures.Post {
 	//hash := tools.HashToken(structure.Email + structure.Password)
 
 	req, err := http.NewRequest(http.MethodGet, "http://localhost:6969/getPosts", bytes.NewReader([]byte("")))
@@ -27,7 +27,8 @@ func GetPost() structures.Post {
 	if err != nil {
 		fmt.Println(err)
 	}
-	Posts := structures.Post{}
+	Posts := []structures.Post{}
 	json.Unmarshal(byteRes, &Posts)
+	fmt.Println(Posts)
 	return Posts
 }
