@@ -6,13 +6,10 @@
 }
 
 :root {
-    --primary-color: #eb8ff4;
-    --secondary-color: #b887f3;
-    --third-color: #f54e4e;
+    --primary-color: #40042F;
+    --secondary-color: #C19292;
+    --third-color: #C19292;
     --fourth-color: #ffffff;
-
-    --primary-font: 'Black Ops One', cursive;
-    --secondary-font: 'Geostar Fill', cursive;
 
 }
 
@@ -21,19 +18,11 @@ html {
 }
 
 body {
-       font-family: var(--primary-font);
-       background: var(--primary-color);
-       color: var(--fourth-color);
-       overflow-x: hidden;
+    display: flex;
+    /*background-color: red;*/
+    overflow-x: hidden;
 }
-.video {
-   position: fixed;
-   top: 0;
-   left: 0;
-   width: 100%;
-   height: 100%;
-   object-fit: cover;
-}
+
 header {
     position: absolute;
     top: 0;
@@ -42,18 +31,41 @@ header {
     height: 100%;
 }
 
+.menu-section {
+    width: 100%;
+    min-height: 90%;
+    height: fit-content;
+    background-color: #40042F;
+    display: flex;
+}
+
+.menu-div {
+    width: 90%;
+    min-height: 785px;
+    height: fit-content;
+    background-color: #C19292;
+    margin-left: auto;
+    margin-right: auto;
+    transform: translateY(-50%, 50%);
+    display: flex;
+    align-items: start;
+    justify-content: center;
+}
+
 nav {
     height: 100%;
 }
 
-.toggle {
-    color: blue;
-    font-size: 2rem;
+#toggle {
+    color: #C19292;
     position: absolute;
-    top: 1rem;
-    right: 1rem;
+    right: 30px;
+    top: 20px;
     z-index: 20;
+    font-size: 2rem;
     cursor: pointer;
+    align-items: center;
+    justify-content: center;
 }
 
 .ouvrir {
@@ -122,7 +134,7 @@ nav {
 }
 
 .menu_left_inner_item a:hover {
-   color: var(--secondary-color);
+    color: var(--secondary-color);
 }
 
 .menu_left_inner_item_small {
@@ -153,47 +165,119 @@ nav {
 }
 
 .menu_right_inner_item ul li a:hover {
-   color: var(--secondary-color);
+    color: var(--secondary-color);
 }
 
 .sep {
-   position: absolute;
-   left: 50%;
-   transform:translateX(-50%);
-   width: 5px;
-   background: var(--secondary-color);
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 4px;
+    background: var(--secondary-color);
 }
 
 .sep_icon {
-   width: 7rem;
-   height: 7rem;
-   border-radius: 50%;
-   background: var(--secondary-color);
-   position: absolute;
-   top: 37%;
-   left: 50%;
-   transform: translate(-50%, 50%);
-   display: flex;
-   justify-content: center;
-   align-items: center;
-   color: var(--third-color);
-   font-family: var(--secondary-color);
-   font-size: 1.5rem;
-   opacity: 0;
+    width: 7rem;
+    height: 7rem;
+    border-radius: 50%;
+    background: var(--secondary-color);
+    position: absolute;
+    top: 37%;
+    left: 50%;
+    transform: translate(-50%, 50%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--third-color);
+    font-family: var(--secondary-color);
+    font-size: 1.5rem;
+    opacity: 0;
 }
 
 
+.CLOAK {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    color: rgb(255, 255, 255);
+    text-align: center;
+    margin-bottom: 3vh;
+    margin-top: 4vh;
+}
 
-@media all and  (max-width: 767px) {
-   .menu_right, .sep_icon {
-       display: none;
-   }
-   .menu_left {
-       width: 100%;
-   }
 
-   .sep {
-       width: 1rem;
-       left: 0;
-   }
+.second-word {
+    margin-left: 1vw;
+    font-family: Vintage-Signature;
+    color: rgb(0, 0, 0);
+}
+
+.search-container {
+    width: fit-content;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.search-input {
+
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    border: none;
+    border-radius: 10px 0 0 10px;
+    width: 400px;
+}
+
+.search-button {
+
+    justify-content: center;
+    align-items: center;
+    padding: 10px 20px;
+    border: none;
+    background-color: #000000;
+    color: #e7c3c3;
+    border-radius: 0 10px 10px 0;
+    cursor: pointer;
+    width: auto;
+}
+
+@media all and (max-width: 767px) {
+
+    .menu_right,
+    .sep_icon {
+        display: none;
+    }
+
+    .menu_left {
+        width: 100%;
+    }
+
+    .sep {
+        width: 1rem;
+        left: 0;
+    }
+}
+
+.navbar-search {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: fit-content;
+    width: fit-content;
+
+}
+
+.content-blocks {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.content-block {
+    width: 30%;
+    height: 50;
+    background-color: white;
+    border-radius: 10px;
 }
