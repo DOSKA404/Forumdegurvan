@@ -18,7 +18,6 @@ toggle.addEventListener('click', function() {
     }
     else {
         body.classList.add('open');
-
         tl.to('.sep', {
             duration: 0.75,
             height: '100%',

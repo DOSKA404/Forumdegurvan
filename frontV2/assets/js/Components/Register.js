@@ -46,6 +46,9 @@ document.getElementById('date').addEventListener('input' , (e) => {
         dateError.innerText = Check
         dateError.classList.add('register-Error-on')
         dateError.classList.remove('register-Error-off')
+    } else {
+        dateError.classList.remove('register-Error-on')
+        dateError.classList.add('register-Error-off')
     }
 })
 document.getElementById('email').addEventListener('input' , (e) => {
@@ -53,6 +56,10 @@ document.getElementById('email').addEventListener('input' , (e) => {
         document.getElementById('emailError').classList.add('register-Error-on')
         document.getElementById('emailError').classList.remove('register-Error-off')
         document.getElementById('emailError').innerText = "The email is not valid"
+    } else {
+        document.getElementById('emailError').classList.remove('register-Error-on')
+        document.getElementById('emailError').classList.add('register-Error-off')
+        document.getElementById('emailError').innerText = ""
     }
 })
 document.getElementById('pseudo').addEventListener('input' , (e) => {
@@ -60,6 +67,10 @@ document.getElementById('pseudo').addEventListener('input' , (e) => {
         document.getElementById('pseudoError').classList.add('register-Error-on')   
         document.getElementById('pseudoError').classList.remove('register-Error-off')
         document.getElementById('pseudoError').innerText = "The pseudo must be betwin 3 and 16 caracters , only '-' and '_' are autorized has special caracters"
+    } else {
+        document.getElementById('pseudoError').classList.remove('register-Error-on')   
+        document.getElementById('pseudoError').classList.add('register-Error-off')
+        document.getElementById('pseudoError').innerText = ""
     }
 })
 

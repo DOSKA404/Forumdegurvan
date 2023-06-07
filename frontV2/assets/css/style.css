@@ -283,3 +283,15 @@ nav {
     background-color: white;
     border-radius: 10px;
 }
+
+.main-button {
+    border : none; 
+    background-color: transparent;
+    font-size: 26px;
+    color: azure;
+    cursor: pointer;
+}
+
+.main-button:hover {
+    color: #e7c3c3;
+}
