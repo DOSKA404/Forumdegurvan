@@ -12,7 +12,7 @@ func GetPosts() []structures.PostWithLike {
 	db, err := sql.Open("sqlite3", "database/db.db")
 	tools.HandlerError(err)
 	defer db.Close()
-	rows, err := db.Query("SELECT Post.id_post, Post.content, User.Username, User.id_user, count(Like.id_like) FROM Post INNER JOIN User ON Post.id_user=User.id_user")
+	rows, err := db.Query("SELECT Post.id_post, Post.content, User.Username, User.id_user FROM Post INNER JOIN User ON Post.id_user=User.id_user")
 	tools.HandlerError(err)
 	result := []structures.PostWithLike{}
 	for rows.Next() {
