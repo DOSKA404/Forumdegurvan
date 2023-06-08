@@ -19,6 +19,7 @@ func GetPosts() []structures.PostWithLike {
 		var post structures.PostWithLike
 		err = rows.Scan(&post.Id_post, &post.Content, &post.Username, &post.Id_user)
 		tools.HandlerError(err)
+		post.Likes = GetLike(post.Id_post)
 		result = append(result, post)
 	}
 	return result
