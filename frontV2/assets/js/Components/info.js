@@ -1,7 +1,7 @@
 document.getElementById("area").addEventListener("keypress", function (e) {
     if (e.key === 'Enter') {
         document.getElementById("date").value = date(new Date().toLocaleDateString())
-        document.getElementById('createPost').submit();
+        document.getElementById('post').submit();
     }
     
 });

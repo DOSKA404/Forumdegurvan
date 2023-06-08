@@ -11,17 +11,14 @@ import (
 	//"github.com/GurvanN22/Forum/src/front/server/tools"
 )
 
-func CreatePost(structure *structures.Post) string {
+func GetPost() []structures.Post {
 	//hash := tools.HashToken(structure.Email + structure.Password)
-	bytesStructure, err := json.Marshal(structure)
+
+	req, err := http.NewRequest(http.MethodGet, "http://localhost:6969/getPosts", bytes.NewReader([]byte("")))
 	if err != nil {
 		fmt.Println(err)
 	}
-	req, err := http.NewRequest(http.MethodPost, "http://localhost:6969/createPost", bytes.NewReader(bytesStructure))
-	if err != nil {
-		fmt.Println(err)
-	}
-	//req.Header.Add("Token :", string(hash))
+	//req.Header.Add("Token", string(hash))
 	res, err := http.DefaultClient.Do(req)
 	if err != nil {
 		fmt.Println(err)
@@ -30,5 +27,8 @@ func CreatePost(structure *structures.Post) string {
 	if err != nil {
 		fmt.Println(err)
 	}
-	return string(byteRes)
+	Posts := []structures.Post{}
+	json.Unmarshal(byteRes, &Posts)
+	fmt.Println(Posts)
+	return Posts
 }

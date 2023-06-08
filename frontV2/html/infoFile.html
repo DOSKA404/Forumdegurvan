@@ -16,9 +16,7 @@
             </div>
             <div>
                 <div class="search-bar">
-                    <form action="" method="post" id = "createPost">
-                        <p style="display: none;" name = "date"></p>
-                        <p style="display: none;" name = "authorid"></p>
+                    <form action="/createPost" method="post">
                         <input type="text" placeholder="Search" name="content">
                     </form>
                     <img src="./assets/img/glass.svg" alt="search logo">
@@ -38,10 +36,10 @@
                     <img src="https://picsum.photos/200/300" alt="">
                     <p>You</p>
                 </div>
-                <form action="/createPost" method="post" id='createPost'>
-                    <p id = "content" name = "content" style="display: none;"></p>
-                    <p id = "username" name = "authorid" style="display: none;"></p>
-                    <p id = "date" name = "date" style="display: none;"></p>
+                <form action="/createPost" method="post" id='post'>
+                    <input id = "content" name = "content" style="display: none;"></input>
+                    <input id = "username" name = "authorid" style="display: none;" value = {{.IdUser}}></input>
+                    <input id = "date" name = "date" style="display: none;"></input>
                 </form>
                 <input type="area" placeholder="What's on your mind?" class="body-post" id = "area">
             </div>
