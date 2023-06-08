@@ -29,6 +29,5 @@ func GetPost() []structures.Post {
 	}
 	Posts := []structures.Post{}
 	json.Unmarshal(byteRes, &Posts)
-	fmt.Println(Posts)
 	return Posts
 }

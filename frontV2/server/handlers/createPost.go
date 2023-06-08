@@ -12,15 +12,14 @@ import (
 func CreatePosthandler(w http.ResponseWriter, r *http.Request) {
 	fmt.Println("CreatePosthandler")
 	IdUser, err := strconv.Atoi(r.FormValue("authorid"))
-	fmt.Println("IdUser: ", r.FormValue("authorid"))
 	if err != nil {
 		fmt.Println(err)
 	}
 	Data := structures.Post{
-		Id_user:      IdUser,
-		Content:      r.FormValue("content"),
-		CreationDate: r.FormValue("date"),
+		Id_user:   IdUser,
+		Content:   r.FormValue("content"),
+		Date_post: r.FormValue("date"),
 	}
-	fmt.Println(apiCall.CreatePost(&Data))
+	apiCall.CreatePost(&Data)
 	Info(w, r)
 }
