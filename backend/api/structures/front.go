@@ -5,3 +5,8 @@ type PostWithLike struct {
 	Username string
 	Likes    int
 }
+
+type LikeSentByTheFront struct {
+	IdPost string
+	IdUser string
+}

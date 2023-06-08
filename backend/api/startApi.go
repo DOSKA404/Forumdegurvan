@@ -14,9 +14,10 @@ func StartApi() {
 	})
 	http.HandleFunc("/createUser", handlers.UserCreationHandler)
 	http.HandleFunc("/login", handlers.UserLoginHandlers)
+	http.HandleFunc("/createPost", handlers.CreatePost)
 	http.HandleFunc("/getPosts", handlers.GetPosts)
 	http.HandleFunc("/getUserInfo", handlers.FetchUserInfo)
-	http.HandleFunc("/createPost", handlers.CreatePost)
+	http.HandleFunc("/like", handlers.LikePost)
 	fmt.Println("api endpoint listening on: http://0.0.0.0:6969")
 	log.Fatal(http.ListenAndServe(":6969", nil))
 }
