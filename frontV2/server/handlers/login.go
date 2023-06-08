@@ -9,20 +9,27 @@ import (
 )
 
 func Login(w http.ResponseWriter, r *http.Request) {
-	if data.LoginResponse == "incorrect password" || data.LoginResponse == "no user found" {
-		Data := structures.Error{
-			ErrorMSG: data.LoginResponse,
-			IsError:  true,
+	cookie, err := r.Cookie("EmailUser")
+	if err != nil {
+		if data.LoginResponse == "incorrect password" || data.LoginResponse == "no user found" {
+			Data := structures.Error{
+				ErrorMSG: data.LoginResponse,
+				IsError:  true,
+			}
+			tmpl := template.Must(template.ParseFiles("html/login.html")) //We link the template and the html file
+			tmpl.Execute(w, Data)
+			tmpl = template.Must(template.ParseFiles("html/footer.html")) //We link the template and the html file
+			tmpl.Execute(w, nil)
+		} else {
+			tmpl := template.Must(template.ParseFiles("html/login.html")) //We link the template and the html file
+			tmpl.Execute(w, nil)
+			tmpl = template.Must(template.ParseFiles("html/footer.html")) //We link the template and the html file
+			tmpl.Execute(w, nil)
 		}
-		tmpl := template.Must(template.ParseFiles("html/login.html")) //We link the template and the html file
-		tmpl.Execute(w, Data)
-		tmpl = template.Must(template.ParseFiles("html/footer.html")) //We link the template and the html file
-		tmpl.Execute(w, nil)
+		data.LoginResponse = ""
 	} else {
-		tmpl := template.Must(template.ParseFiles("html/login.html")) //We link the template and the html file
-		tmpl.Execute(w, nil)
-		tmpl = template.Must(template.ParseFiles("html/footer.html")) //We link the template and the html file
-		tmpl.Execute(w, nil)
+		data.Email_User = cookie.Value
+		Info(w, r)
 	}
-	data.LoginResponse = ""
+
 }
