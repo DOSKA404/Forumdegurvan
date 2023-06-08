@@ -12,7 +12,6 @@ type Post struct {
 	Id_post   int
 	Date_post string
 	Content   string
-	Username  string
 	Id_user   int
 }
 
@@ -28,9 +27,4 @@ type Like struct {
 	Id_Like int
 	Id_post int
 	Id_user int
-}
-
-type PostWithLike struct {
-	Post
-	Likes int
 }
