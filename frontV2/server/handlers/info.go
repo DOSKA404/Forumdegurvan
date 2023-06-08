@@ -7,6 +7,7 @@ import (
 	"github.com/GurvanN22/Forum/src/front/server/apiCall"
 	"github.com/GurvanN22/Forum/src/front/server/data"
 	"github.com/GurvanN22/Forum/src/front/server/structures"
+	"github.com/GurvanN22/Forum/src/front/server/apiCall"
 )
 
 func Info(w http.ResponseWriter, r *http.Request) {
