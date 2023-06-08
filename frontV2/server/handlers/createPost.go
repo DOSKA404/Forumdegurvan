@@ -10,7 +10,6 @@ import (
 )
 
 func CreatePosthandler(w http.ResponseWriter, r *http.Request) {
-	fmt.Println("CreatePosthandler")
 	IdUser, err := strconv.Atoi(r.FormValue("authorid"))
 	if err != nil {
 		fmt.Println(err)

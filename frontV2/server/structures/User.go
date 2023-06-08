@@ -5,4 +5,5 @@ type User struct {
 	Username    string
 	DateOfBirth string
 	Password    string
+	Id_user     int
 }

@@ -16,6 +16,7 @@ func LoginResponse(w http.ResponseWriter, r *http.Request) {
 	data.LoginResponse = apiCall.LoginConnection(&structure)
 	switch data.LoginResponse {
 	case "Login successful":
+		data.Email_User = structure.Email
 		Info(w, r)
 		break
 	case "incorrect password":

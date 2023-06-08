@@ -4,15 +4,18 @@ import (
 	"html/template"
 	"net/http"
 
+	"github.com/GurvanN22/Forum/src/front/server/apiCall"
+	"github.com/GurvanN22/Forum/src/front/server/data"
 	"github.com/GurvanN22/Forum/src/front/server/structures"
 	"github.com/GurvanN22/Forum/src/front/server/apiCall"
 )
 
 func Info(w http.ResponseWriter, r *http.Request) {
+	User := apiCall.GetUserInfos(data.Email_User)
 	Data := structures.InfoDataInput{
-		USERNAME: "Le Rouge",
+		USERNAME: User.Username,
 		PostLine: []structures.Post{},
-		IdUser:   1,
+		IdUser:   User.Id_user,
 	}
 	Data.PostLine = apiCall.GetPost()
 	tmpl := template.Must(template.ParseFiles("html/infoFile.html")) //We link the template and the html file
