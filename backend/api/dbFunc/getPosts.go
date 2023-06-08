@@ -9,7 +9,7 @@ import (
 )
 
 type postWithLike struct {
-	*structures.Post
+	structures.Post
 	Likes int
 }
 
