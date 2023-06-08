@@ -1,7 +1,6 @@
 package handlers
 
 import (
-	"fmt"
 	"net/http"
 
 	"github.com/GurvanN22/Forum/src/front/server/apiCall"
@@ -17,7 +16,7 @@ func LoginResponse(w http.ResponseWriter, r *http.Request) {
 	data.LoginResponse = apiCall.LoginConnection(&structure)
 	switch data.LoginResponse {
 	case "Login successful":
-		fmt.Println("Login successful")
+		Info(w, r)
 		break
 	case "incorrect password":
 		Login(w, r)
