@@ -29,3 +29,8 @@ type Like struct {
 	Id_post int
 	Id_user int
 }
+
+type PostWithLike struct {
+	Post
+	Likes int
+}
