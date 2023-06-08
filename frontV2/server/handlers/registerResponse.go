@@ -10,8 +10,10 @@ import (
 
 func RegisterResponse(w http.ResponseWriter, r *http.Request) {
 	structure := structures.User{
-		Email:    r.FormValue("email"),
-		Password: r.FormValue("psw"),
+		Email:       r.FormValue("email"),
+		Password:    r.FormValue("psw"),
+		DateOfBirth: r.FormValue("date"),
+		Username:    r.FormValue("pseudo"),
 	}
 	data.RegisterResponse = apiCall.CreateAccount(&structure)
 	switch data.RegisterResponse {
@@ -21,5 +23,7 @@ func RegisterResponse(w http.ResponseWriter, r *http.Request) {
 	case "username already exists":
 		Register(w, r)
 		break
+	default:
+		Login(w, r)
 	}
 }
