@@ -13,10 +13,10 @@ import (
 func CreatePost(w http.ResponseWriter, r *http.Request) {
 	if r.Method == http.MethodPost {
 		byteReq, err := io.ReadAll(r.Body)
-		tools.HandlerError(err)
+		tools.HandlerError(w, err)
 		var post structures.Post
 		err = json.Unmarshal(byteReq, &post)
-		tools.HandlerError(err)
+		tools.HandlerError(w, err)
 		err = dbFunc.CreatePost(&post)
 		if err != nil {
 			w.Write([]byte(err.Error()))

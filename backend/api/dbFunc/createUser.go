@@ -11,7 +11,9 @@ import (
 
 func PutUserInDb(user *structures.User) error {
 	db, err := sql.Open("sqlite3", "database/db.db")
-	tools.HandlerError(err)
+	if err != nil {
+		return err
+	}
 	defer db.Close()
 	err = CheckUserEmailAlreadyExists(db, user.Email)
 	if err != nil {
@@ -23,8 +25,12 @@ func PutUserInDb(user *structures.User) error {
 	}
 	records := "INSERT INTO User(email, username, date_of_birth, password_hash) VALUES(?, ?, ?, ?)"
 	querry, err := db.Prepare(records)
-	tools.HandlerError(err)
+	if err != nil {
+		return err
+	}
 	_, err = querry.Exec(user.Email, user.Username, user.DateOfBirth, hex.EncodeToString(tools.HashPassword(user.Password)))
-	tools.HandlerError(err)
+	if err != nil {
+		return err
+	}
 	return nil
 }
