@@ -3,16 +3,16 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./assets/css/infoFile.css">
-    <link rel="icon" href="./assets/img/logo.svg" />
+    <link rel="stylesheet" href="/assets/css/infoFile.css">
+    <link rel="icon" href="/assets/img/logo.svg" />
     <title>Cloak & Dagger</title>
 </head>
 <body>
     <section>
-         <div class="topDiv">
+        <div class="topDiv">
             <div>
                 <form action="/disconnect" method="get">
-                    <img src="./assets/img/logo.svg" alt="logo" style="cursor: pointer;">
+                    <img src="/assets/img/logo.svg" alt="logo" style="cursor: pointer;" class="">
                 </form>
                 <h1>Cloak & Dagger</h1>
             </div>
@@ -21,17 +21,16 @@
                     <form action="/createPost" method="post">
                         <input type="text" placeholder="Search" name="content">
                     </form>
-                    <img src="./assets/img/glass.svg" alt="search logo">
+                    <img src="/assets/img/glass.svg" alt="search logo">
                 </div>
-                <form action="/account" method="post">
-                    <button>
-                        <img src="./assets/img/user.svg" alt="user logo ">
-                    </button>
-                </form>
+                <img src="/assets/img/user.svg" alt="user logo " id = "openAccountOptions" class="Accountimg">
+                <div id = "AccountOption" class="hidden"></div>
+                <!-- <form action="/account" method="post">
+                </form> -->
             </div>
             
             
-         </div>
+        </div>
         <div class="Posts">
             <div class="post">
                 <div class="top-post">
@@ -46,7 +45,7 @@
                 <input type="area" placeholder="What's on your mind?" class="body-post" id = "area">
             </div>
             {{range .PostLine}}
-               <div class="post">
+            <div class="post">
                 <div class="top-post">
                     <img src="https://picsum.photos/200/300" alt="">
                     <p>{{.Username}}</p>
@@ -54,17 +53,17 @@
                 <div class="body-post">{{.Content}}</div>
                 <div class="bottom-post">
                     {{if .IsLike}}
-                    <img src="./assets/img/like.svg" alt="">
+                    <img src="/assets/img/like.svg" alt="">
                     {{else}}
-                    <img src="./assets/img/like-placeholder.svg" alt="">
+                    <img src="/assets/img/like-placeholder.svg" alt="">
                     {{end}}
                     
                     <p>{{.Likes}}</p>
                 </div>
-               </div>
+            </div>
             {{end}}
         </div> 
     </section>  
 </body>
-<script src="./assets/js/Components/info.js" defer></script>
+<script src="/assets/js/Components/info.js" defer></script>
 </html>
