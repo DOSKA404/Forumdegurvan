@@ -9,8 +9,9 @@ import (
 )
 
 func Login(w http.ResponseWriter, r *http.Request) {
+	DeleteCookie(w, r)
 	cookie, err := r.Cookie("EmailUser")
-	if err != nil {
+	if err != nil || cookie.Value == "" {
 		if data.LoginResponse == "incorrect password" || data.LoginResponse == "no user found" {
 			Data := structures.Error{
 				ErrorMSG: data.LoginResponse,

@@ -21,6 +21,7 @@ func StartServer() {
 	http.HandleFunc("/createPost", handlers.CreatePosthandler)
 	http.HandleFunc("/test", handlers.Test)
 	http.HandleFunc("/testpost", handlers.Testpost)
+	http.HandleFunc("/disconnect", handlers.Disconnect)
 	//We choose port 8080
 	fmt.Println("The serveur start on port 8080 🔥") //We print this when the server is online
 	fmt.Println("http://localhost:8080/")
