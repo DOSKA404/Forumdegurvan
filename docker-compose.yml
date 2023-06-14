@@ -1,8 +1,8 @@
 services:
   api:
     build:
-      context: ./backend
-      dockerfile: Dockerfile
+      context: .
+      dockerfile: backend/Dockerfile
     image: tomyj/Forum-backend
     ports:
       - 6969:6969
@@ -10,8 +10,8 @@ services:
     depends_on:
       - api
     build:
-      context: ./frontV2
-      dockerfile: Dockerfile
+      context: .
+      dockerfile: frontV2/Dockerfile
     image: tomyj/Forum-front
     ports:
       - 80:80
