@@ -7,6 +7,11 @@ type PostWithLike struct {
 }
 
 type LikeSentByTheFront struct {
-	IdPost string
-	IdUser string
+	IdPost int
+	IdUser int
+}
+
+type UpdateUsername struct {
+	IdUser      string
+	NewUsername string
 }
