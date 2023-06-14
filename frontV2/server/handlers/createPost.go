@@ -2,6 +2,7 @@ package handlers
 
 import (
 	"fmt"
+	"html/template"
 	"net/http"
 	"strconv"
 
@@ -20,5 +21,6 @@ func CreatePosthandler(w http.ResponseWriter, r *http.Request) {
 		Date_post: r.FormValue("date"),
 	}
 	apiCall.CreatePost(&Data)
-	Info(w, r)
+	tmpl := template.Must(template.ParseFiles("html/infore.html")) //We link the template and the html file
+	tmpl.Execute(w, nil)
 }

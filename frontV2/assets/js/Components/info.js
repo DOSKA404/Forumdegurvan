@@ -13,3 +13,4 @@ document.getElementById("area").addEventListener("input", function (e) {
 function date(Date) {
     return Date[6] + Date[7] + Date[8] + Date[9]+"-"+Date[3] + Date[4]+"-"+Date[0] + Date[1];
 }
+

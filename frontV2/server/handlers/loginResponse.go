@@ -1,6 +1,7 @@
 package handlers
 
 import (
+	"html/template"
 	"net/http"
 	"strconv"
 
@@ -18,8 +19,9 @@ func LoginResponse(w http.ResponseWriter, r *http.Request) {
 	switch data.LoginResponse {
 	case "Login successful":
 		data.Email_User = structure.Email
-		//SetCookies(w, r)
-		Info(w, r)
+		SetCookies(w, r)
+		tmpl := template.Must(template.ParseFiles("html/infore.html")) //We link the template and the html file
+		tmpl.Execute(w, nil)
 		break
 	case "incorrect password":
 		Login(w, r)
@@ -30,7 +32,7 @@ func LoginResponse(w http.ResponseWriter, r *http.Request) {
 	}
 }
 
-func SetCookies(w http.ResponseWriter, r *http.Request) structures.User {
+func SetCookies(w http.ResponseWriter, r *http.Request) {
 	User := apiCall.GetUserInfos(data.Email_User)
 	Username := http.Cookie{
 		Name:     "Username",
@@ -62,5 +64,4 @@ func SetCookies(w http.ResponseWriter, r *http.Request) structures.User {
 	http.SetCookie(w, &Username)
 	http.SetCookie(w, &ID)
 	http.SetCookie(w, &Email)
-	return User
 }

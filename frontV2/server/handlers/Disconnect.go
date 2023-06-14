@@ -1,12 +1,14 @@
 package handlers
 
 import (
+	"html/template"
 	"net/http"
 )
 
 func Disconnect(w http.ResponseWriter, r *http.Request) {
 	DeleteCookie(w, r)
-	Login(w, r)
+	tmpl := template.Must(template.ParseFiles("html/loginre.html")) //We link the template and the html file
+	tmpl.Execute(w, nil)
 }
 
 func DeleteCookie(w http.ResponseWriter, r *http.Request) {
