@@ -1,0 +1,32 @@
+<div class="topDiv">
+    <link rel="stylesheet" href="/assets/css/header.css">
+    <div>
+        <form action="/disconnect" method="get">
+            <img src="/assets/img/logo.svg" alt="logo" style="cursor: pointer;" class="">
+        </form>
+        <h1>Cloak & Dagger</h1>
+    </div>
+    <div id = "leftside">
+        <div class="search-bar">
+            <form action="/createPost" method="post">
+                <input type="text" placeholder="Search" name="content">
+            </form>
+            <img src="/assets/img/glass.svg" alt="search logo">
+        </div>
+        <img src="/assets/img/user.svg" alt="user logo " id = "openAccountOptions" class="Accountimg">
+        <div id = "AccountOption" class="hidden">
+            <p class="pseudo">Login as : {{.USERNAME}}</p>
+            <form action="/account" method="post">
+                <input type="text" style="display: none;" value = "{{.IdUser}}" name = "idUser">
+                <button class="main-button">Account Page</button>
+            </form>
+            <form action="/disconnect" method="get">
+                <button class="main-button">Disconnect</button>
+            </form>
+        </div>
+        <!-- <form action="/account" method="post">
+        </form> -->
+    </div>
+    
+    <script src="assets/js/Components/header.js"></script>
+</div>

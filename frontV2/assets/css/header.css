@@ -1,0 +1,106 @@
+.AccountOption {
+    border-radius: 15px;
+    position: absolute;
+    top: 2vh;
+    right: 1vw;
+    background-color: #D9D9D9;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    flex-direction: column;
+    width: fit-content;
+    min-width: 15vw;
+    min-height: 50vh;
+    height : fit-content;
+    margin: 0 0 0 0;
+}
+
+.margin-right {
+    margin-right: 17vw;
+}
+
+.topDiv {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #40042F;
+    height: 15vh;
+    width: 100vw;
+    margin-bottom: 7vh;
+}
+.topDiv > div {
+    display: flex;
+    align-items: center;
+    width: fit-content;
+    height: 100%;
+}
+.topDiv > div > img {
+    margin-left: 2vw;
+}
+
+.topDiv > div > h1  {
+    margin-left: 2vw;
+    font-size: 50px;
+}
+
+.topDiv > div > img  , .Accountimg{
+    margin-top: 1vh;
+    margin-right: 1vw;
+    margin-left: 1vw;
+    height: 50px;
+    width: 50px;
+    border-radius: 500px;
+    border: 3px solid #D9D9D9;
+    cursor: pointer;
+}
+
+.search-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: fit-content;
+    height: fit-content;
+    border-radius: 10px;
+    border: none;
+    outline: none;
+    padding: 0 0 0 10px;
+    font-size: 1.5rem;
+    font-family: 'Roboto', sans-serif;
+    background-color: #D9D9D9;
+    color: #40042F;
+    margin: 0 0 0 0;
+}
+
+.search-bar > img {
+    margin-right: 1vw;
+}
+.search-bar > form > input {
+    margin-top: 2vh;
+    background: none    ;
+    border: none;
+    border: none;
+    outline: none;
+    padding: 0 0 0 10px;
+    font-size: 1.5rem;
+    font-family: 'Roboto', sans-serif;
+    color: #40042F;
+}
+
+.pseudo {
+    font-size: 30px;
+    font-family: 'Roboto', sans-serif;
+    color: #40042F;
+    margin-top: 0;
+    margin-bottom: 1vh;
+}
+
+#AccountOption > form > button {
+    background: white;
+    border: none;
+    border-radius: 10px;
+    outline: none;
+    font-size: 24px;
+    color: #40042F;
+    cursor: pointer;
+    margin-top: 2vh;
+}
