@@ -2,6 +2,7 @@ package handlers
 
 import (
 	"net/http"
+	"strconv"
 
 	"github.com/GurvanN22/Forum/src/front/server/apiCall"
 	"github.com/GurvanN22/Forum/src/front/server/data"
@@ -17,6 +18,7 @@ func LoginResponse(w http.ResponseWriter, r *http.Request) {
 	switch data.LoginResponse {
 	case "Login successful":
 		data.Email_User = structure.Email
+		//SetCookies(w, r)
 		Info(w, r)
 		break
 	case "incorrect password":
@@ -26,4 +28,39 @@ func LoginResponse(w http.ResponseWriter, r *http.Request) {
 		Login(w, r)
 		break
 	}
+}
+
+func SetCookies(w http.ResponseWriter, r *http.Request) structures.User {
+	User := apiCall.GetUserInfos(data.Email_User)
+	Username := http.Cookie{
+		Name:     "Username",
+		Value:    User.Username,
+		Path:     "/",
+		MaxAge:   1704085200,
+		HttpOnly: true,
+		Secure:   true,
+		SameSite: http.SameSiteLaxMode,
+	}
+	Email := http.Cookie{
+		Name:     "EmailUser",
+		Value:    User.Email,
+		Path:     "/",
+		MaxAge:   1704085200,
+		HttpOnly: true,
+		Secure:   true,
+		SameSite: http.SameSiteLaxMode,
+	}
+	ID := http.Cookie{
+		Name:     "IdUser",
+		Value:    strconv.Itoa(User.Id_user),
+		Path:     "/",
+		MaxAge:   1704085200,
+		HttpOnly: true,
+		Secure:   true,
+		SameSite: http.SameSiteLaxMode,
+	}
+	http.SetCookie(w, &Username)
+	http.SetCookie(w, &ID)
+	http.SetCookie(w, &Email)
+	return User
 }
