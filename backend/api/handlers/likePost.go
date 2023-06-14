@@ -13,10 +13,10 @@ import (
 func LikePost(w http.ResponseWriter, r *http.Request) {
 	if r.Method == http.MethodPost {
 		byteBody, err := io.ReadAll(r.Body)
-		tools.HandlerError(err)
+		tools.HandlerError(w, err)
 		var likeSendByTheFront structures.LikeSentByTheFront
 		err = json.Unmarshal(byteBody, &likeSendByTheFront)
-		tools.HandlerError(err)
+		tools.HandlerError(w, err)
 		dbFunc.CreateLike(&likeSendByTheFront)
 		w.Write([]byte("Like created"))
 	} else {

@@ -4,15 +4,21 @@ import (
 	"database/sql"
 
 	"github.com/GurvanN22/Forum/src/Backend/api/structures"
-	"github.com/GurvanN22/Forum/src/Backend/tools"
 	_ "github.com/mattn/go-sqlite3"
 )
 
-func CreateLike(likeSendByTheFront *structures.LikeSentByTheFront) {
+func CreateLike(likeSendByTheFront *structures.LikeSentByTheFront) error {
 	db, err := sql.Open("sqlite3", "database/db.db")
-	tools.HandlerError(err)
+	if err != nil {
+		return err
+	}
 	req, err := db.Prepare("INSERT INTO Like(id_post, id_user) VALUES(?, ?)")
-	tools.HandlerError(err)
+	if err != nil {
+		return err
+	}
 	_, err = req.Exec(&likeSendByTheFront.IdPost, &likeSendByTheFront.IdUser)
-	tools.HandlerError(err)
+	if err != nil {
+		return err
+	}
+	return nil
 }

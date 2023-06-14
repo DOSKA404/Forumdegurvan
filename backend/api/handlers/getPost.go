@@ -10,9 +10,10 @@ import (
 
 func GetPosts(w http.ResponseWriter, r *http.Request) {
 	if r.Method == http.MethodGet {
-		listPost := dbFunc.GetPosts()
+		listPost, err := dbFunc.GetPosts()
+		tools.HandlerError(w, err)
 		byteListPost, err := json.Marshal(&listPost)
-		tools.HandlerError(err)
+		tools.HandlerError(w, err)
 		w.Write(byteListPost)
 	} else {
 		w.Write([]byte("Bad request method"))

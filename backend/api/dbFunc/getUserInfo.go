@@ -4,18 +4,23 @@ import (
 	"database/sql"
 
 	"github.com/GurvanN22/Forum/src/Backend/api/structures"
-	"github.com/GurvanN22/Forum/src/Backend/tools"
 	_ "github.com/mattn/go-sqlite3"
 )
 
-func GetUserInfo(email string) structures.User {
+func GetUserInfo(email string) (structures.User, error) {
 	db, err := sql.Open("sqlite3", "database/db.db")
-	tools.HandlerError(err)
+	if err != nil {
+		return structures.User{}, err
+	}
 	defer db.Close()
 	rows := db.QueryRow("SELECT id_user, email, username, date_of_birth FROM User WHERE email=?", email)
-	tools.HandlerError(err)
+	if err != nil {
+		return structures.User{}, err
+	}
 	var user structures.User
 	err = rows.Scan(&user.Id_user, &user.Email, &user.Username, &user.DateOfBirth)
-	tools.HandlerError(err)
-	return user
+	if err != nil {
+		return structures.User{}, err
+	}
+	return user, nil
 }
