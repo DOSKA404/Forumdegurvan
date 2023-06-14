@@ -14,9 +14,9 @@ func UserCreationHandler(w http.ResponseWriter, r *http.Request) {
 	if r.Method == http.MethodPost {
 		var user *structures.User
 		byteUser, err := io.ReadAll(r.Body)
-		tools.HandlerError(err)
+		tools.HandlerError(w, err)
 		err = json.Unmarshal(byteUser, &user)
-		tools.HandlerError(err)
+		tools.HandlerError(w, err)
 		err = dbFunc.PutUserInDb(user)
 		if err != nil {
 			w.Write([]byte(err.Error()))

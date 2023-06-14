@@ -14,9 +14,9 @@ func UserLoginHandlers(w http.ResponseWriter, r *http.Request) {
 	if r.Method == http.MethodPost {
 		var user structures.User
 		byteReq, err := io.ReadAll(r.Body)
-		tools.HandlerError(err)
+		tools.HandlerError(w, err)
 		err = json.Unmarshal(byteReq, &user)
-		tools.HandlerError(err)
+		tools.HandlerError(w, err)
 		hashPassInDb, err := dbFunc.GetPasswordWithEmail(user.Email)
 		if err != nil {
 			w.Write([]byte(err.Error()))

@@ -3,8 +3,6 @@ package dbFunc
 import (
 	"database/sql"
 	"errors"
-
-	"github.com/GurvanN22/Forum/src/Backend/tools"
 )
 
 func CheckUserEmailAlreadyExists(db *sql.DB, email string) error {
@@ -12,7 +10,7 @@ func CheckUserEmailAlreadyExists(db *sql.DB, email string) error {
 	var result int
 	err := row.Scan(&result)
 	if err != nil {
-		tools.HandlerError(err)
+		return err
 	}
 	if result != 0 {
 		err := errors.New("user already exists")

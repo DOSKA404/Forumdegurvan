@@ -1,9 +1,12 @@
 package tools
 
-import "log"
+import (
+	"net/http"
+)
 
-func HandlerError(err error) {
-	if err != nil {
-		log.Fatal(err)
+func HandlerError(w http.ResponseWriter, e error) {
+	if e != nil {
+		w.WriteHeader(http.StatusInternalServerError)
+		w.Write([]byte("Error api"))
 	}
 }
