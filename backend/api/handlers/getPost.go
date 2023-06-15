@@ -2,7 +2,6 @@ package handlers
 
 import (
 	"encoding/json"
-	"fmt"
 	"net/http"
 
 	"github.com/GurvanN22/Forum/src/Backend/api/dbFunc"
@@ -12,7 +11,6 @@ import (
 func GetPosts(w http.ResponseWriter, r *http.Request) {
 	if r.Method == http.MethodGet {
 		listPost, err := dbFunc.GetPosts()
-		fmt.Println(listPost)
 		tools.HandlerError(w, err)
 		byteListPost, err := json.Marshal(&listPost)
 		tools.HandlerError(w, err)

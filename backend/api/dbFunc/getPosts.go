@@ -2,7 +2,6 @@ package dbFunc
 
 import (
 	"database/sql"
-	"fmt"
 
 	"github.com/GurvanN22/Forum/src/Backend/api/structures"
 	_ "github.com/mattn/go-sqlite3"
@@ -25,9 +24,7 @@ func GetPosts() ([]structures.PostWithLike, error) {
 		if err != nil {
 			return nil, err
 		}
-		t, _ := GetLike(post.Id_post)
-		fmt.Println(t)
-		post.Likes = t
+		post.Likes, err = GetLike(post.Id_post)
 		if err != nil {
 			return nil, err
 		}
