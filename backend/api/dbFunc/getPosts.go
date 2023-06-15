@@ -7,7 +7,7 @@ import (
 	_ "github.com/mattn/go-sqlite3"
 )
 
-func GetPosts() ([]structures.PostWithLike, error) {
+func GetPosts(idUser string) ([]structures.PostWithLike, error) {
 	db, err := sql.Open("sqlite3", "database/db.db")
 	if err != nil {
 		return nil, err
