@@ -6,6 +6,8 @@ services:
     image: tomyj/forum-backend
     ports:
       - 6969:6969
+    networks:
+      - default
   front:
     depends_on:
       - api
@@ -15,3 +17,7 @@ services:
     image: tomyj/forum-front
     ports:
       - 8080:8080
+    networks:
+      - default
+networks:
+  default
