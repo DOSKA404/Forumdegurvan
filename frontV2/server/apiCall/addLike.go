@@ -12,14 +12,17 @@ import (
 	//"github.com/GurvanN22/Forum/src/front/server/tools"
 )
 
-func GetPost() []structures.Post {
+func AddLike(structure *structures.LikeSentByTheFront) string {
 	//hash := tools.HashToken(structure.Email + structure.Password)
-
-	req, err := http.NewRequest(http.MethodGet, data.APIadress+"/getPosts", bytes.NewReader([]byte("")))
+	bytesStructure, err := json.Marshal(structure)
 	if err != nil {
 		fmt.Println(err)
 	}
-	//req.Header.Add("Token", string(hash))
+	req, err := http.NewRequest(http.MethodPost, data.APIadress+"/like", bytes.NewReader(bytesStructure))
+	if err != nil {
+		fmt.Println(err)
+	}
+	//req.Header.Add("Token :", string(hash))
 	res, err := http.DefaultClient.Do(req)
 	if err != nil {
 		fmt.Println(err)
@@ -28,8 +31,5 @@ func GetPost() []structures.Post {
 	if err != nil {
 		fmt.Println(err)
 	}
-	fmt.Println(string(byteRes))
-	Posts := []structures.Post{}
-	json.Unmarshal(byteRes, &Posts)
-	return Posts
+	return string(byteRes)
 }
