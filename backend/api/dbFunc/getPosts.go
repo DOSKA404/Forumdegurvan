@@ -7,7 +7,7 @@ import (
 	_ "github.com/mattn/go-sqlite3"
 )
 
-func GetPosts() ([]structures.PostWithLike, error) {
+func GetPosts(idUser int) ([]structures.PostWithLike, error) {
 	db, err := sql.Open("sqlite3", "database/db.db")
 	if err != nil {
 		return nil, err
@@ -27,6 +27,9 @@ func GetPosts() ([]structures.PostWithLike, error) {
 		post.Likes, err = GetLike(post.Id_post)
 		if err != nil {
 			return nil, err
+		}
+		if post.Id_user == idUser {
+			post.IsLikedByUser = true
 		}
 		result = append(result, post)
 	}
