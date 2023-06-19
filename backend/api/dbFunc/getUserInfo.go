@@ -8,7 +8,7 @@ import (
 )
 
 func GetUserInfo(email string) (structures.User, error) {
-	db, err := sql.Open("sqlite3", "database/db.db")
+	db, err := sql.Open("sqlite3", "database/db.sqlite")
 	if err != nil {
 		return structures.User{}, err
 	}

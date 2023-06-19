@@ -8,7 +8,7 @@ import (
 
 func GetLike(id_post int) (int, error) {
 	result := 0
-	db, err := sql.Open("sqlite3", "database/db.db")
+	db, err := sql.Open("sqlite3", "database/db.sqlite")
 	if err != nil {
 		return 0, err
 	}
