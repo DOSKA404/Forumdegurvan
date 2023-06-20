@@ -7,7 +7,7 @@ import (
 )
 
 func UpdateUsername(u *structures.UpdateUsername) error {
-	db, err := sql.Open("sqlite3", "database/db.db")
+	db, err := sql.Open("sqlite3", "database/db.sqlite")
 	if err != nil {
 		return err
 	}

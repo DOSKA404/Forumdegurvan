@@ -9,7 +9,7 @@ import (
 
 func GetPasswordWithEmail(email string) (string, error) {
 	result := ""
-	db, err := sql.Open("sqlite3", "database/db.db")
+	db, err := sql.Open("sqlite3", "database/db.sqlite")
 	if err != nil {
 		db.Close()
 		return "", err

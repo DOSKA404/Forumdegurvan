@@ -9,7 +9,7 @@ import (
 )
 
 func CreatePost(post *structures.Post) error {
-	db, err := sql.Open("sqlite3", "database/db.db")
+	db, err := sql.Open("sqlite3", "database/db.sqlite")
 	if err != nil {
 		e := errors.New("error creating post")
 		return e
