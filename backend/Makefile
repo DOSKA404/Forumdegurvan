@@ -6,7 +6,7 @@ help: ## Outputs this help screen
 reset_databse: ## Reset the database
 	@cd database
 	@rm db.db
-	@sqlite3 db.db
+	@sqlite3 db.sqlite
 
 build_api: ## Build the api
 	@go build -o bin/api main.go
