@@ -6,16 +6,17 @@ import (
 	"fmt"
 	"io"
 	"net/http"
+	"strconv"
 
 	"github.com/GurvanN22/Forum/src/front/server/data"
 	"github.com/GurvanN22/Forum/src/front/server/structures"
 	//"github.com/GurvanN22/Forum/src/front/server/tools"
 )
 
-func GetPost() []structures.Post {
+func GetPost(id int) []structures.Post {
 	//hash := tools.HashToken(structure.Email + structure.Password)
-
-	req, err := http.NewRequest(http.MethodGet, data.APIadress+"/getPosts", bytes.NewReader([]byte("")))
+	StringId := strconv.Itoa(id)
+	req, err := http.NewRequest(http.MethodGet, data.APIadress+"/getPosts", bytes.NewReader([]byte(StringId)))
 	if err != nil {
 		fmt.Println(err)
 	}
@@ -28,7 +29,6 @@ func GetPost() []structures.Post {
 	if err != nil {
 		fmt.Println(err)
 	}
-	fmt.Println(string(byteRes))
 	Posts := []structures.Post{}
 	json.Unmarshal(byteRes, &Posts)
 	return Posts
