@@ -11,5 +11,5 @@ reset_databse: ## Reset the database
 build_api: ## Build the api
 	@go build -o bin/api main.go
 
-start_api: ## Run the api
+start_api: build_api ## Run the api
 	@./bin/api
