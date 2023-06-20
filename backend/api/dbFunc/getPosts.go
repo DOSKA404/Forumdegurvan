@@ -28,7 +28,7 @@ func GetPosts(idUser int) ([]structures.PostWithLike, error) {
 		if err != nil {
 			return nil, err
 		}
-		if post.Id_user == idUser {
+		if IsPostLikedByUser(idUser, post.Id_post, db) {
 			post.IsLikedByUser = true
 		}
 		result = append(result, post)
