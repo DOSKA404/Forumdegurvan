@@ -24,6 +24,7 @@ func UserCreationHandler(w http.ResponseWriter, r *http.Request) {
 			w.Write([]byte("user created"))
 		}
 	} else {
+		w.WriteHeader(http.StatusBadRequest)
 		w.Write([]byte("Bad request Method"))
 	}
 }

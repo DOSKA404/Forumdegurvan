@@ -25,6 +25,7 @@ func FetchUserInfo(w http.ResponseWriter, r *http.Request) {
 			w.Write(byteUser)
 		}
 	} else {
+		w.WriteHeader(http.StatusBadRequest)
 		w.Write([]byte("Bad request Method"))
 	}
 }

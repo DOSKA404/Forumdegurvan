@@ -23,6 +23,7 @@ func GetPosts(w http.ResponseWriter, r *http.Request) {
 		tools.HandlerError(w, err)
 		w.Write(byteListPost)
 	} else {
-		w.Write([]byte("Bad request method"))
+		w.WriteHeader(http.StatusBadRequest)
+		w.Write([]byte("Bad request Method"))
 	}
 }
