@@ -20,6 +20,7 @@ func UnlikePost(w http.ResponseWriter, r *http.Request) {
 		dbFunc.DeleteLike(&likeSendByTheFront)
 		w.Write([]byte("Like deleted"))
 	} else {
-		w.Write([]byte("Bad request method"))
+		w.WriteHeader(http.StatusBadRequest)
+		w.Write([]byte("Bad request Method"))
 	}
 }

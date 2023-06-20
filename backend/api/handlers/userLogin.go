@@ -29,6 +29,7 @@ func UserLoginHandlers(w http.ResponseWriter, r *http.Request) {
 		}
 		w.Write([]byte("Login successful"))
 	} else {
-		w.Write([]byte("Bad request method"))
+		w.WriteHeader(http.StatusBadRequest)
+		w.Write([]byte("Bad request Method"))
 	}
 }

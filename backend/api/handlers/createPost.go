@@ -24,6 +24,7 @@ func CreatePost(w http.ResponseWriter, r *http.Request) {
 			w.Write([]byte("Post Created"))
 		}
 	} else {
-		w.Write([]byte("bad request method"))
+		w.WriteHeader(http.StatusBadRequest)
+		w.Write([]byte("Bad request Method"))
 	}
 }

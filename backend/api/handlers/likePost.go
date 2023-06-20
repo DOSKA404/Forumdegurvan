@@ -20,6 +20,7 @@ func LikePost(w http.ResponseWriter, r *http.Request) {
 		dbFunc.CreateLike(&likeSendByTheFront)
 		w.Write([]byte("Like created"))
 	} else {
-		w.Write([]byte("Bad request method"))
+		w.WriteHeader(http.StatusBadRequest)
+		w.Write([]byte("Bad request Method"))
 	}
 }

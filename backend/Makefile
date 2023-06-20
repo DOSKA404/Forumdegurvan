@@ -6,10 +6,10 @@ help: ## Outputs this help screen
 reset_databse: ## Reset the database
 	@cd database
 	@rm db.db
-	@sqlite3 db.db
+	@sqlite3 db.sqlite
 
 build_api: ## Build the api
 	@go build -o bin/api main.go
 
-start_api: ## Run the api
+start_api: build_api ## Run the api
 	@./bin/api
