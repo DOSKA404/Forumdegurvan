@@ -7,6 +7,7 @@ import (
 	"io"
 	"net/http"
 
+	"github.com/GurvanN22/Forum/src/front/server/data"
 	"github.com/GurvanN22/Forum/src/front/server/structures"
 	//"github.com/GurvanN22/Forum/src/front/server/tools"
 )
@@ -17,7 +18,7 @@ func LoginConnection(structure *structures.User) string {
 	if err != nil {
 		fmt.Println(err)
 	}
-	req, err := http.NewRequest(http.MethodPost, "http://localhost:6969/login", bytes.NewReader(bytesStructure))
+	req, err := http.NewRequest(http.MethodPost, data.APIadress+"/login", bytes.NewReader(bytesStructure))
 	if err != nil {
 		fmt.Println(err)
 	}

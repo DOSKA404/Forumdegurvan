@@ -22,7 +22,7 @@ func Info(w http.ResponseWriter, r *http.Request) {
 		PostLine: []structures.Post{},
 		IdUser:   IdUserint,
 	}
-	Data.PostLine = apiCall.GetPost()
+	Data.PostLine = apiCall.GetPost(Data.IdUser)
 	tmpl := template.Must(template.ParseFiles("html/header.html")) //We link the template and the html file
 	tmpl.Execute(w, Data)
 	tmpl = template.Must(template.ParseFiles("html/infoFile.html")) //We link the template and the html file

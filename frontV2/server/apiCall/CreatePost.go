@@ -7,6 +7,7 @@ import (
 	"io"
 	"net/http"
 
+	"github.com/GurvanN22/Forum/src/front/server/data"
 	"github.com/GurvanN22/Forum/src/front/server/structures"
 	//"github.com/GurvanN22/Forum/src/front/server/tools"
 )
@@ -17,7 +18,7 @@ func CreatePost(structure *structures.Post) string {
 	if err != nil {
 		fmt.Println(err)
 	}
-	req, err := http.NewRequest(http.MethodPost, "http://localhost:6969/createPost", bytes.NewReader(bytesStructure))
+	req, err := http.NewRequest(http.MethodPost, data.APIadress+"/createPost", bytes.NewReader(bytesStructure))
 	if err != nil {
 		fmt.Println(err)
 	}

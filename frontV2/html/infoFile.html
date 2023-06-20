@@ -30,12 +30,22 @@
                 </div>
                 <div class="body-post">{{.Content}}</div>
                 <div class="bottom-post">
-                    {{if .IsLike}}
-                    <img src="/assets/img/like.svg" alt="">
+                    {{if .IsLikedByUser}}
+                    <form action="/unlike" method="post">
+                        <button style="background: none; border: none;">
+                            <img src="/assets/img/like.svg" alt="likes" class="likes">
+                            <input type="text" name="id-post" style="display: none;" value="{{.Id_post}}">
+                        </button>
+                    </form>
+                    <input type="text" name="id-post" style="display: none;" value="{{.Id_post}}">
                     {{else}}
-                    <img src="/assets/img/like-placeholder.svg" alt="">
+                    <form action="/likes" method="post">
+                        <button style="background: none; border: none;">
+                            <img src="/assets/img/like-placeholder.svg" alt="likes" class="likes">
+                            <input type="text" name="id-post" style="display: none;" value="{{.Id_post}}">
+                        </button>
+                    </form>
                     {{end}}
-                    
                     <p>{{.Likes}}</p>
                 </div>
             </div>

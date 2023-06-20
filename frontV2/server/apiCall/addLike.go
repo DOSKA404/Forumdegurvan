@@ -12,14 +12,13 @@ import (
 	//"github.com/GurvanN22/Forum/src/front/server/tools"
 )
 
-func CreateAccount(structure *structures.User) string {
-
+func AddLike(structure *structures.LikeSentByTheFront) string {
 	//hash := tools.HashToken(structure.Email + structure.Password)
 	bytesStructure, err := json.Marshal(structure)
 	if err != nil {
 		fmt.Println(err)
 	}
-	req, err := http.NewRequest(http.MethodPost, data.APIadress+"/createUser", bytes.NewReader(bytesStructure))
+	req, err := http.NewRequest(http.MethodPost, data.APIadress+"/like", bytes.NewReader(bytesStructure))
 	if err != nil {
 		fmt.Println(err)
 	}
